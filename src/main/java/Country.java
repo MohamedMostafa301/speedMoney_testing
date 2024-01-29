@@ -21,7 +21,26 @@ public class Country {
         return driver.findElement(By.cssSelector("input[name=\"CountryValidation\"]"));
     }
 
-    public void addSteps(){
-
+    public void addSteps(String name,String time,String code,String validation) throws InterruptedException {
+         driver.findElement(By.xpath("//a[@href=\"https://speed-money.app/admin/country/add\"]")).click();
+        Thread.sleep(3000);
+        countryName().sendKeys(name);
+        countryTime().sendKeys(time);
+        countryCode().sendKeys(code);
+        countryValidation().sendKeys(validation);
+        driver.findElement(By.xpath("//button[@class=\"btn btn-primary\"]")).click();
+    }
+    public void editSteps(String name,String time,String code,String validation) throws InterruptedException {
+        driver.findElement(By.xpath("//a[@href=\"https://speed-money.app/admin/country/edit/6\"]")).click();
+        Thread.sleep(3000);
+        countryName().clear();
+        countryName().sendKeys(name);
+        countryTime().clear();
+        countryTime().sendKeys(time);
+        countryCode().clear();
+        countryCode().sendKeys(code);
+        countryValidation().clear();
+        countryValidation().sendKeys(validation);
+        driver.findElement(By.xpath("//button[@class=\"btn btn-primary\"]")).click();
     }
 }

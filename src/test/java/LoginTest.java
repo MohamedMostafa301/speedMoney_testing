@@ -23,6 +23,7 @@ public class LoginTest {
     public void ValidLogin(){
         loginPage.LoginSteps("admin@gmail.com","123456789");
         Assert.assertEquals(driver.getCurrentUrl(),"https://speed-money.app/admin/home");
+        loginPage.logOutSteps();
     }
 
     @Test
@@ -32,7 +33,7 @@ public class LoginTest {
         System.out.println(actualValue);
         String expectedValue="The selected user email is invalid.";
         Assert.assertTrue(actualValue.contains(expectedValue));
-    }
+          }
 
     @Test
     public void inValidPassLogin(){
@@ -41,7 +42,7 @@ public class LoginTest {
         System.out.println(actualValue);
         String expectedValue="Password Incorrect";
         Assert.assertTrue(actualValue.contains(expectedValue));
-    }
+           }
 
     @Test
     public void inValidLogin(){
@@ -50,6 +51,7 @@ public class LoginTest {
         System.out.println(actualValue);
         String expectedValue="The selected user email is invalid.";
         Assert.assertTrue(actualValue.contains(expectedValue));
+
     }
 
     @Test
@@ -64,7 +66,7 @@ public class LoginTest {
         String expectedValue2="The user password field is required.";
         //text-light fw-bold
         Assert.assertTrue(actualValue2.contains(expectedValue2));
-    }
+           }
 
     @AfterTest
     public void close() throws InterruptedException {

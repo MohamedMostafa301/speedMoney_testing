@@ -22,4 +22,12 @@ public class LoginPage {
         password().sendKeys(password);
         driver.findElement(By.cssSelector("button[type=\"submit\"]")).click();
     }
+
+
+    public void logOutSteps(){
+        //img[@alt="user"]
+        driver.findElement(By.xpath("//img[@alt=\"user\"]")).click();
+        driver.findElement(By.xpath("//button[@type=\"submit\" and contains(.,sign)]")).click();
+        //
+    }
 }
